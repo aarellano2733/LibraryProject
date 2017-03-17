@@ -39,7 +39,7 @@ Library.prototype.removeBookByAuthor = function(author){
   return console.log('Book by author not found')
 }
 Library.prototype.removeBookByTitle = function(title){
-  for(i = this.books.length -1; i >= 0; i--){
+  for(i = this.books.length - 1; i >= 0; i--){
     if(this.books[i].title == title){
       this.books.splice(i, 1);
       return this.books[i];
@@ -47,37 +47,31 @@ Library.prototype.removeBookByTitle = function(title){
   }
   return console.log('Book title not found')
 }
-Library.prototype.loadBooks2 = function(){
-
-   return books2;
- }
- Library.prototype.addBooks = function(arrBooks){
-   this.books.push(arrBooks);
- }
+ Library.prototype.addBooks = function(arrayBooks){
+   this.books.push(books2);
+}
  Library.prototype.getBooksByAuthor = function(author){
    var booksByAuthor = [];
-   for(var index in this.books){
-    if(this.books[index].author == author){
-      this.books[index].author.push(booksByAuthor)
-      return this.booksByAuthor[index];
+   for(i = this.books.length; i>= 1; i++){
+    if(this.books[i].author == author){
+      this.books[i].push(booksByAuthor)
+      return this.booksByAuthor;
      }
    }
    return console.log('Books by author not found');
- }
+}
 Library.prototype.getRandomBook = function(){
-  var randBook = Math.floor(Math.random() * (this.books.length - 1 + 1)) + 1;
+  var randBook = Math.floor(Math.random() * (this.books.length - 0 + 0)) + 0;
   return this.books[randBook];
+}
+Library.prototype.getRandomAuthor = function(){
+  var randAuth = Math.floor(Math.random() * (this.books.length - 0 + 0)) + 0;
+  var result = randAuth.filter(function( books ) {
+  return books.author == author;
+});
 }
 //Library.prototype.getRandomAuthor = function(){
   //var randAuth = (Math.random() * (this.books.length -1 + 1)) + 1;
   //return this.books[randAuth];
 //}
-Library.prototype.getRandomAuthor = function (book) {
-    var randAuth;
-    var count = 0;
-    for (var author in book)
-        if (Math.random() < 1/++count)
-        var result = author;
-    return result;
-}
 var books2 = [{title: 'Book4', author: 'Name4', pages: 104, publishDate: 2004}, {title: 'Book5', author: 'Name5', pages: 105, publishDate: 2005}, {title: 'Book6', author: 'Name6', pages: 106, publishDate: 2006}];
