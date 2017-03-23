@@ -22,9 +22,9 @@ Library.prototype.getBookByTitle = function(title){
   return console.log('Book not found');
 }
 Library.prototype.getBookByAuthor = function(author){
-  for(var index in this.books){
-    if(this.books[index].author == author){
-      return this.books[index];
+  for(var i in this.books){
+    if(this.books[i].author == author){
+      return this.books[i];
     }
   }
   return console.log('Book by author not found');
@@ -47,15 +47,19 @@ Library.prototype.removeBookByTitle = function(title){
   }
   return console.log('Book title not found')
 }
- Library.prototype.addBooks = function(arrayBooks){
-   this.books.push(books2);
+ Library.prototype.addBooks = function(){
+   var book = {title: newTitle, author: newAuthor, pages: newPages, publishDate: newPublishDate};
+   var cart = [];
+   cart.push(book);
+   newBooks = this.books.push(cart);
+   return newBooks;
 }
  Library.prototype.getBooksByAuthor = function(author){
    var booksByAuthor = [];
    for(i = this.books.length; i>= 1; i++){
     if(this.books[i].author == author){
-      this.books[i].push(booksByAuthor)
-      return this.booksByAuthor;
+      booksByAuthor.push(this.books[i])
+      return booksByAuthor;
      }
    }
    return console.log('Books by author not found');
@@ -65,10 +69,10 @@ Library.prototype.getRandomBook = function(){
   return this.books[randBook];
 }
 Library.prototype.getRandomAuthor = function(){
+
+  if(this.books)
   var randAuth = Math.floor(Math.random() * (this.books.length - 0 + 0)) + 0;
-  var result = randAuth.filter(function( books ) {
-  return books.author == author;
-});
+
 }
 //Library.prototype.getRandomAuthor = function(){
   //var randAuth = (Math.random() * (this.books.length -1 + 1)) + 1;
